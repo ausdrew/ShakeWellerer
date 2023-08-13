@@ -14,6 +14,9 @@ Inspired by [@yamiacat](https://github.com/yamiacat)'s ShakeWeller, this edition
 
 <sub>*Kinda, probably doing a bit much for the task at hand.</sub>
 
+### Installation
+
+Download [ShakeWellerer.alfredworkflow](https://github.com/ausdrew/ShakeWellerer/raw/main/ShakeWellerer.alfredworkflow) and open it to install.
 
 ### Configuration
 Snippets can be defined in the Alfred Workflow Configuration
