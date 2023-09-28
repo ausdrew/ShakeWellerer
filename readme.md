@@ -21,7 +21,7 @@ As of Mac OS 14 Sonoma running .swift files from the commandline is proving [unc
 To download and install the CLI application to your bin, run the following commands in your terminal:
 
 ```bash
-wget https://github.com/ausdrew/ShakeWellererStaging/releases/latest/download/ShakeWellerer
+wget https://github.com/ausdrew/ShakeWellerer/releases/latest/download/ShakeWellerer
 chmod +x ./ShakeWellerer
 sudo cp -f ./ShakeWellerer /usr/local/bin/ShakeWellerer
 rm ./ShakeWellerer
@@ -29,7 +29,7 @@ rm ./ShakeWellerer
 
 I'd prefer for the script to be in Alfred in full, and will add it back in when Apple fixes the issue. 
 
-Download [ShakeWellerer.alfredworkflow](https://github.com/ausdrew/ShakeWellerer/raw/main/ShakeWellerer.alfredworkflow) and open it to install or update.
+Download [ShakeWellerer.alfredworkflow](https://github.com/ausdrew/ShakeWellerer/releases/latest/download/ShakeWellerer.alfredworkflow) and open it to install or update.
 
 ### Configuration
 Snippets can be defined in the Alfred Workflow Configuration - click the 'Configure Workflow...' button.
