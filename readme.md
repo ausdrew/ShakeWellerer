@@ -1,6 +1,6 @@
 ## ShakeWellerer
 
-ShakeWellerer is an Alfred Workflow that allows you to setup groups of snippets with an associated trigger. Each time a snippet group is triggered, a random snippet from that group is pasted into the active application.
+ShakeWellerer is an [Alfred Workflow](https://www.alfredapp.com/workflows/) that allows you to setup groups of snippets with an associated trigger. Each time a snippet group is triggered, a random snippet from that group is pasted into the active application.
 
 It can be used to add some variation to your canned ticket responses, or to quickly paste some random variation of commonly used text.
 
