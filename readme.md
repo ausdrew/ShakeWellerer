@@ -16,20 +16,9 @@ Inspired by [@yamiacat](https://github.com/yamiacat)'s ShakeWeller, this edition
 
 ### Installation
 
-As of Mac OS 14 Sonoma running .swift files from the commandline is proving [uncooperative](https://github.com/apple/swift/issues/68785) so the workflow has been clumsily adapted to work with a compiled Swift CLI application.
-
-To download and install the CLI application to your bin, run the following commands in your terminal:
-
-```bash
-wget https://github.com/ausdrew/ShakeWellerer/releases/latest/download/ShakeWellerer
-chmod +x ./ShakeWellerer
-sudo cp -f ./ShakeWellerer /usr/local/bin/ShakeWellerer
-rm ./ShakeWellerer
-```
-
-I'd prefer for the script to be in Alfred in full, and will add it back in when Apple fixes the issue. 
-
 Download [ShakeWellerer.alfredworkflow](https://github.com/ausdrew/ShakeWellerer/releases/latest/download/ShakeWellerer.alfredworkflow) and open it to install or update.
+
+The workflow includes a universal native executable for both Apple silicon and Intel Macs. No separate command-line installation is required.
 
 ### Configuration
 Snippets can be defined in the Alfred Workflow Configuration - click the 'Configure Workflow...' button.
@@ -86,8 +75,8 @@ https://github.com/ausdrew/ShakeWellerer/assets/6315839/663eb8c5-9daa-4464-b3bc-
 
 You should now have an additional snippet group to use and configure as needed!
 
-### Commandline Usage
-Given the tool's nature it's quite impractical to use from the command line but Alfred calls it like so:
+### Command-line usage
+Given the tool's nature, it is quite impractical to use from the command line, but Alfred calls the bundled executable like so:
 
 ```bash
 extlines="${ExtraLines}"
@@ -95,7 +84,7 @@ snippets="${Selector}"
 
 encoded_string=$(echo -n "${!snippets}" | base64)
 
-ShakeWellerer ${!extlines} ${encoded_string}
+./ShakeWellerer ${!extlines} ${encoded_string}
 ```
 
 Fortunately Alfred adds the necessary options from the configuration to the environment variables. Bash is used to convert the snippets to base64 as a lazy way of getting around potential escaping issues.
