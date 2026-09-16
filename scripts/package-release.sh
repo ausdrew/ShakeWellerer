@@ -24,6 +24,7 @@ binary_output="$output_dir/ShakeWellerer"
 rm -rf "$output_dir"
 mkdir -p "$output_dir"
 
+arch_binaries=()
 for arch in arm64 x86_64; do
     arch_build_dir="$build_dir/$arch"
     xcrun swift build \
@@ -31,12 +32,17 @@ for arch in arm64 x86_64; do
         --scratch-path "$arch_build_dir" \
         -c release \
         --arch "$arch"
+
+    bin_path="$(xcrun swift build \
+        --package-path "$repo_root" \
+        --scratch-path "$arch_build_dir" \
+        -c release \
+        --arch "$arch" \
+        --show-bin-path)"
+    arch_binaries+=("$bin_path/ShakeWellerer")
 done
 
-xcrun lipo -create \
-    "$build_dir/arm64/out/Products/Release/ShakeWellerer" \
-    "$build_dir/x86_64/out/Products/Release/ShakeWellerer" \
-    -output "$stage_dir/ShakeWellerer"
+xcrun lipo -create "${arch_binaries[@]}" -output "$stage_dir/ShakeWellerer"
 
 cp "$repo_root/workflow/info.plist" "$stage_dir/info.plist"
 cp "$repo_root/workflow/icon.png" "$stage_dir/icon.png"
