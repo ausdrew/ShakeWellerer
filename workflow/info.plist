@@ -1680,7 +1680,7 @@ I'm sorry we couldn't get to your ticket as soon as I'd like.</string>
 	<key>variablesdontexport</key>
 	<array/>
 	<key>version</key>
-	<string>2.0.2</string>
+	<string>2.0.3</string>
 	<key>webaddress</key>
 	<string>https://github.com/ausdrew/ShakeWellerer</string>
 </dict>

@@ -24,16 +24,22 @@ binary_output="$output_dir/ShakeWellerer"
 rm -rf "$output_dir"
 mkdir -p "$output_dir"
 
-xcrun swift build \
-    --package-path "$repo_root" \
-    --scratch-path "$build_dir" \
-    -c release \
-    --arch arm64 \
-    --arch x86_64
+for arch in arm64 x86_64; do
+    arch_build_dir="$build_dir/$arch"
+    xcrun swift build \
+        --package-path "$repo_root" \
+        --scratch-path "$arch_build_dir" \
+        -c release \
+        --arch "$arch"
+done
+
+xcrun lipo -create \
+    "$build_dir/arm64/out/Products/Release/ShakeWellerer" \
+    "$build_dir/x86_64/out/Products/Release/ShakeWellerer" \
+    -output "$stage_dir/ShakeWellerer"
 
 cp "$repo_root/workflow/info.plist" "$stage_dir/info.plist"
 cp "$repo_root/workflow/icon.png" "$stage_dir/icon.png"
-cp "$build_dir/out/Products/Release/ShakeWellerer" "$stage_dir/ShakeWellerer"
 chmod 755 "$stage_dir/ShakeWellerer"
 
 plutil -replace version -string "$version" "$stage_dir/info.plist"
